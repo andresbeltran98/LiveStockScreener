@@ -43,7 +43,7 @@ Will return a list of all the stocks whose name includes the word “intel”
 
 ## Documentation
 Documentation is offered under doc/index.html <br>
-Or you can see it [here](http://htmlpreview.github.io/?https://github.com/andresbeltran98/HuffmanCompressor/blob/master/doc/index.html)
+Or you can see it [here](http://htmlpreview.github.io/?https://github.com/andresbeltran98/LiveStockScreener/blob/master/doc/py-modindex.html)
 
 ## Author
 * Andres Beltran - B.S. Computer Science candidate. CWRU 2021
