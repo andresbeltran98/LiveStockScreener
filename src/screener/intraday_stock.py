@@ -22,12 +22,6 @@ from mpl_finance import candlestick_ohlc
 import screener.indicators as indicators
 import screener.crawler as crawler
 
-# print(plt.style.available)
-
-# http://strftime.org/
-# https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=AAPL&outputsize=full&interval=1min&apikey=O1C7ECLZQODUYN6D
-# https://tonysyu.github.io/raw_content/matplotlib-style-gallery/gallery.html
-
 
 def rsi_graph_settings(axrsi):
     """Configures the RSI plot
