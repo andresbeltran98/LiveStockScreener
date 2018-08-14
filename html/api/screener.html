@@ -1,0 +1,403 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>screener package &#8212; screener unknown documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="screener" href="modules.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="screener-package">
+<h1>screener package<a class="headerlink" href="#screener-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-screener.crawler">
+<span id="screener-crawler-module"></span><h2>screener.crawler module<a class="headerlink" href="#module-screener.crawler" title="Permalink to this headline">¶</a></h2>
+<p>This module represents a web crawler. It gets the data from
+Alpha Vantage’s API</p>
+<dl class="function">
+<dt id="screener.crawler.add_last_row">
+<code class="descclassname">screener.crawler.</code><code class="descname">add_last_row</code><span class="sig-paren">(</span><em>dict</em>, <em>df</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/crawler.html#add_last_row"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.crawler.add_last_row" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a row to the dataframe when the API’s values are updated
+:param dict: The dictionary with all the data
+:type dict: dict
+:param df (: obj:’pandas.DataFrame’:): Stock’s dataframe</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.crawler.get_dictionary">
+<code class="descclassname">screener.crawler.</code><code class="descname">get_dictionary</code><span class="sig-paren">(</span><em>ticker</em>, <em>interval</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/crawler.html#get_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.crawler.get_dictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the dictionary that stores all the data from the API
+:param ticker: Ticker Symbol
+:type ticker: str
+:param interval: Time interval
+:type interval: str</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The dictionary that stores timestamps and the stock’s data</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#dict" title="(in Python v3.6)">dict</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.crawler.get_url">
+<code class="descclassname">screener.crawler.</code><code class="descname">get_url</code><span class="sig-paren">(</span><em>ticker</em>, <em>interval</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/crawler.html#get_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.crawler.get_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the URL
+:param ticker: Ticker Symbol
+:type ticker: str
+:param interval: Time interval
+:type interval: str</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The final URL for the API</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.crawler.parse_dictionary">
+<code class="descclassname">screener.crawler.</code><code class="descname">parse_dictionary</code><span class="sig-paren">(</span><em>dict</em>, <em>current_day</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/crawler.html#parse_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.crawler.parse_dictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the data from the API’s dictionary
+:param dict: The dictionary with all the data
+:type dict: dict
+:param current_day: Today’s day as an integer
+:type current_day: int</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">obj:’pandas.DataFrame’: The dataframe with dates as indices, and open,
+high, low, close, and volume values</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-screener.indicators">
+<span id="screener-indicators-module"></span><h2>screener.indicators module<a class="headerlink" href="#module-screener.indicators" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the mathematical formulas to calculate several
+stock indicators</p>
+<dl class="function">
+<dt id="screener.indicators.movingaverage">
+<code class="descclassname">screener.indicators.</code><code class="descname">movingaverage</code><span class="sig-paren">(</span><em>values</em>, <em>window</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/indicators.html#movingaverage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.indicators.movingaverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates a Simple Moving Average
+:param values: The integer value of the current moving average
+:type values: int
+:param window: The window used to calculate the current moving average
+:type window: int</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The Moving Average with the specified values</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(in Python v3.6)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.indicators.rsi_function">
+<code class="descclassname">screener.indicators.</code><code class="descname">rsi_function</code><span class="sig-paren">(</span><em>prices</em>, <em>period=14</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/indicators.html#rsi_function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.indicators.rsi_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the Relative Strength Index (RSI)
+:param prices: The integer value of the current moving average
+:type prices: [int]
+:param period: The number of data points used to calculate the RSI
+:type period: int</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The list containg the values for the RSI</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(in Python v3.6)">int</a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-screener.intraday_stock">
+<span id="screener-intraday-stock-module"></span><h2>screener.intraday_stock module<a class="headerlink" href="#module-screener.intraday_stock" title="Permalink to this headline">¶</a></h2>
+<p>This module plots the candlesticks, volume, moving averages, and RSI</p>
+<dl class="function">
+<dt id="screener.intraday_stock.animate">
+<code class="descclassname">screener.intraday_stock.</code><code class="descname">animate</code><span class="sig-paren">(</span><em>i</em>, <em>ticker</em>, <em>stock_name</em>, <em>period</em>, <em>df</em>, <em>fig</em>, <em>MA1</em>, <em>MA2</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/intraday_stock.html#animate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.intraday_stock.animate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates and animates the graph
+:param i: Interval
+:type i: int
+:param ticker: Ticker symbol
+:type ticker: str
+:param stock_name: Stock’s namespace
+:type stock_name: str
+:param period: Intraday period (1 or 5 min)
+:type period: int
+:param df (: obj:’pandas.DataFrame’:): Stock’s dataframe
+:param fig (: obj:’matplotlib.figure.Figure’:): Figure
+:param MA1: Fast Simple Moving Average
+:type MA1: int
+:param MA2: Slow Simple Moving Average
+:type MA2: int</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.intraday_stock.candlestick_graph_settings">
+<code class="descclassname">screener.intraday_stock.</code><code class="descname">candlestick_graph_settings</code><span class="sig-paren">(</span><em>ax1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/intraday_stock.html#candlestick_graph_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.intraday_stock.candlestick_graph_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the Candlesticks plot
+:param ax1 (: obj:’matplotlib.axes.Axes’:): Main axis</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.intraday_stock.custom_exchandler">
+<code class="descclassname">screener.intraday_stock.</code><code class="descname">custom_exchandler</code><span class="sig-paren">(</span><em>type</em>, <em>value</em>, <em>traceback</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/intraday_stock.html#custom_exchandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.intraday_stock.custom_exchandler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="screener.intraday_stock.graph_data">
+<code class="descclassname">screener.intraday_stock.</code><code class="descname">graph_data</code><span class="sig-paren">(</span><em>stock</em>, <em>df</em>, <em>fig</em>, <em>MA1</em>, <em>MA2</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/intraday_stock.html#graph_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.intraday_stock.graph_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Graphs everything
+:param stock: Stock’s name
+:type stock: str
+:param df (: obj:’pandas.DataFrame’:): Stock’s dataframe
+:param fig (: obj:’matplotlib.figure.Figure’:): Figure
+:param MA1: Fast Simple Moving Average
+:type MA1: int
+:param MA2: Slow Simple Moving Average
+:type MA2: int</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.intraday_stock.handle_close">
+<code class="descclassname">screener.intraday_stock.</code><code class="descname">handle_close</code><span class="sig-paren">(</span><em>evt</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/intraday_stock.html#handle_close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.intraday_stock.handle_close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes the figure
+:param evt:
+:type evt: event</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.intraday_stock.rsi_graph_settings">
+<code class="descclassname">screener.intraday_stock.</code><code class="descname">rsi_graph_settings</code><span class="sig-paren">(</span><em>axrsi</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/intraday_stock.html#rsi_graph_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.intraday_stock.rsi_graph_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the RSI plot
+:param axrsi (: obj:’matplotlib.axes.Axes’:): RSI axis</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.intraday_stock.run">
+<code class="descclassname">screener.intraday_stock.</code><code class="descname">run</code><span class="sig-paren">(</span><em>ticker</em>, <em>stock_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/intraday_stock.html#run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.intraday_stock.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the script and plots the graphs
+:param ticker: Ticker symbol
+:type ticker: str
+:param stock_name: Stock’s name
+:type stock_name: str</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.intraday_stock.volume_graph_settings">
+<code class="descclassname">screener.intraday_stock.</code><code class="descname">volume_graph_settings</code><span class="sig-paren">(</span><em>axvolume</em>, <em>df</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/intraday_stock.html#volume_graph_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.intraday_stock.volume_graph_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the Volume plot
+:param axvolume (: obj:’matplotlib.axes.Axes’:): Volume axis
+:param df (: obj:’pandas.DataFrame’:): Stock’s dataframe</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-screener.main">
+<span id="screener-main-module"></span><h2>screener.main module<a class="headerlink" href="#module-screener.main" title="Permalink to this headline">¶</a></h2>
+<p>This is the main module. It parses the command line arguments
+and runs the script</p>
+<dl class="function">
+<dt id="screener.main.get_name_from_ticker">
+<code class="descclassname">screener.main.</code><code class="descname">get_name_from_ticker</code><span class="sig-paren">(</span><em>ticker</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/main.html#get_name_from_ticker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.main.get_name_from_ticker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the company’s name from its ticker Symbol
+:param ticker: Ticker Symbol
+:type ticker: str</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The name of the company at index 0</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#tuple" title="(in Python v3.6)">tuple</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.main.get_stock_from_name">
+<code class="descclassname">screener.main.</code><code class="descname">get_stock_from_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/main.html#get_stock_from_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.main.get_stock_from_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all the companies in the database that match a given name
+:param name: The name of the company to search for
+:type name: str</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The symbol and name of all the companies found in the database</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#tuple" title="(in Python v3.6)">tuple</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.main.parse_arguments">
+<code class="descclassname">screener.main.</code><code class="descname">parse_arguments</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/main.html#parse_arguments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.main.parse_arguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse command line arguments
+:param args: Command line parameters as list of strings
+:type args: [str]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">obj:’argparse.Namespace’: command line parameters namespace</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.main.run">
+<code class="descclassname">screener.main.</code><code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/main.html#run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.main.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the script</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-screener.stock_database">
+<span id="screener-stock-database-module"></span><h2>screener.stock_database module<a class="headerlink" href="#module-screener.stock_database" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the functions for database management</p>
+<dl class="function">
+<dt id="screener.stock_database.create_table">
+<code class="descclassname">screener.stock_database.</code><code class="descname">create_table</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/stock_database.html#create_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.stock_database.create_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the database table</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.stock_database.data_entry">
+<code class="descclassname">screener.stock_database.</code><code class="descname">data_entry</code><span class="sig-paren">(</span><em>symbol</em>, <em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/stock_database.html#data_entry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.stock_database.data_entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inserts an item into the database
+:param symbol: The ticker Symbol
+:type symbol: str
+:param name: Stock’s name
+:type name: str</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="screener.stock_database.insert_all_elements">
+<code class="descclassname">screener.stock_database.</code><code class="descname">insert_all_elements</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/screener/stock_database.html#insert_all_elements"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#screener.stock_database.insert_all_elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses a CSV file and inserts all the values to the database</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-screener">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-screener" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">screener</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">screener package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">screener</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">screener</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Andres Beltran.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="../_sources/api/screener.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
